@@ -1,24 +1,23 @@
-import logo from './logo.svg';
+import { useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import BuildForm from './Components/BuildForm';
+import Output from './Components/Output';
+import Templates from './Components/Templates';
 import './App.css';
 
 function App() {
+const [currentTemplate, setsCurrentTemplate] = useState({})
+const [formInput, setsFormInput] = useState("")
+const [currentHTML, setsCurrentHTML] = useState("")
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div>
+      <Routes>
+        <Route path="/" element={<Templates setsCurrentTemplate={setsCurrentTemplate}/>} />
+        <Route path="/build" element={<BuildForm currentTemplate={currentTemplate} formInput={formInput} setsFormInput={setsFormInput} currentHTML={currentHTML} setsCurrentHTML={setsCurrentHTML} />}/>
+        <Route path="/output" element={<Output formInput={formInput} currentHTML={currentHTML} setsCurrentHTML={setsCurrentHTML}/>}/>
+      </Routes>
+      </div>
   );
 }
 
