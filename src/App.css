@@ -17,6 +17,7 @@ h1, h2{
 .templates{
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   margin: auto;
   padding: 5%;
