@@ -5,6 +5,7 @@ export default function Templates(props){
 	let emailTemplateElements = emailtemplates.map(template => {
 		function handleClick(){
 			props.setsCurrentTemplate(template)
+			props.setsCurrentHTML(template.shellHTML)
 		}
 		return(
 			<div>

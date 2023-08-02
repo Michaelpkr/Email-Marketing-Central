@@ -13,7 +13,7 @@ const [currentHTML, setsCurrentHTML] = useState("")
   return (
     <div>
       <Routes>
-        <Route path="/" element={<Templates setsCurrentTemplate={setsCurrentTemplate}/>} />
+        <Route path="/" element={<Templates setsCurrentTemplate={setsCurrentTemplate} setsCurrentHTML={setsCurrentHTML}/> } />
         <Route path="/build" element={<BuildForm currentTemplate={currentTemplate} formInput={formInput} setsFormInput={setsFormInput} currentHTML={currentHTML} setsCurrentHTML={setsCurrentHTML} />}/>
         <Route path="/output" element={<Output formInput={formInput} currentHTML={currentHTML} setsCurrentHTML={setsCurrentHTML}/>}/>
       </Routes>
