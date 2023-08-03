@@ -5,7 +5,7 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
 export default function BuildForm(props) {
-  const fields = Object.keys(props.currentTemplate.fields);
+  const fields = Object.entries(props.currentTemplate.fields);
   const [formInput, setFormInput] = useState({});
   const modules =  {
     toolbar: [
@@ -20,15 +20,29 @@ export default function BuildForm(props) {
     ],
   }
 
-  function changeHandler(field, content, delta, source, editor) {
+
+  function textAreaChangeHandler(e) {
     setFormInput((prevFormInput) => ({
       ...prevFormInput,
-      [field]: {
+      [e.target.placeholder]: {
+        value: e.target.placeholder,
+        placeholder: e.target.value,
+      },
+    }));
+  }
+
+  function changeHandler(field, content, delta, source, editor) {
+    console.log(field, content)
+    setFormInput((prevFormInput) => ({
+      ...prevFormInput,
+      [field[0]]: {
         value: editor.getText(),
         placeholder: content,
       },
     }));
   }
+
+  console.log(formInput)
 
   return (
     <div>
@@ -39,14 +53,17 @@ export default function BuildForm(props) {
         <form className="buildForm">
           {fields.map(field => (
             <div>
-            <ReactQuill
-              theme="snow"
-              modules={modules}
-              name={field}
-              onChange={(content, delta, source, editor) => changeHandler(field, content, delta, source, editor)}
-              key={field}
-              placeholder={field}
-            />
+              {field[1].editable == true ?
+              <ReactQuill
+                theme="snow"
+                modules={modules}
+                name={field[0]}
+                onChange={(content, delta, source, editor) => changeHandler(field, content, delta, source, editor)}
+                key={field[0]}
+                placeholder={field[0]}
+              /> :
+              <textarea onChange={textAreaChangeHandler} placeholder={field[0]}></textarea>}
+
             </div>
           ))}
         </form>
