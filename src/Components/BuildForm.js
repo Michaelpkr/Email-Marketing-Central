@@ -13,7 +13,10 @@ export default function BuildForm(props) {
       ['bold', 'italic', 'underline'],
       [{'list': 'ordered'}, {'list': 'bullet'}],
       ['link'],
-      ['clean']
+      ['clean'],
+      [{
+        'color': ['#0073b9']
+      }]
     ],
   }
 
