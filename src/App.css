@@ -1,4 +1,8 @@
 
+strong{
+  font-weight:600
+}
+
 *{
   font-family: canada-type-gibson, Helvetica, Arial, sans-serif;
   text-decoration: none;

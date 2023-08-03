@@ -7,6 +7,15 @@ import 'react-quill/dist/quill.snow.css';
 export default function BuildForm(props) {
   const fields = Object.keys(props.currentTemplate.fields);
   const [formInput, setFormInput] = useState({});
+  const modules =  {
+    toolbar: [
+      [{ 'header': [1, 2, false] }],
+      ['bold', 'italic', 'underline'],
+      [{'list': 'ordered'}, {'list': 'bullet'}],
+      ['link'],
+      ['clean']
+    ],
+  }
 
   function changeHandler(field, content, delta, source, editor) {
     setFormInput((prevFormInput) => ({
@@ -28,7 +37,8 @@ export default function BuildForm(props) {
           {fields.map(field => (
             <div>
             <ReactQuill
-              // theme="snow"
+              theme="snow"
+              modules={modules}
               name={field}
               onChange={(content, delta, source, editor) => changeHandler(field, content, delta, source, editor)}
               key={field}
