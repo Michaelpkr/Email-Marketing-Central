@@ -43,16 +43,24 @@ h1, h2{
 
 .buildForm textarea{
   margin: 10px 0px;
+  width: 100%;
 }
 
 .outputDiv{
   display: flex;
   flex-direction: column;
+  transition: width 0.3s ease;
 }
 
-.klaviyoBtn{
+.outputBtnDiv{
+  display: flex;
+  flex-direction: row;
+  align-content: center;
   margin-top: 10px;
-  background-color: #0073b9;
+}
+
+.mobileMode {
+  width: 300px;
 }
 
 .htmlRendering{
