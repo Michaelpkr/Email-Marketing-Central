@@ -33,7 +33,6 @@ export default function BuildForm(props) {
     ],
   }
 
-
   function textAreaChangeHandler(e) {
     setFormInput((prevFormInput) => ({
       ...prevFormInput,
