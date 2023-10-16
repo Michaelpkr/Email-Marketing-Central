@@ -10,7 +10,7 @@ export default function Templates(props){
 		return(
 			<div>
 			<div className="templates" key={template.name}>
-				<img width="100px" src={template.img}/>
+				<img width="200px" className="templateLogo" src={template.img}/>
 				<h2>{template.name}</h2>
 				<Link to="/build">
 				<button onClick={handleClick}>Build</button>

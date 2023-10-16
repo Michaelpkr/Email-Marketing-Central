@@ -85,3 +85,8 @@ a{
   color: #0073b9;
   text-decoration: underline;
 }
+
+.templateLogo{
+  background-color: #0073b9;
+  padding: 10px;
+}
